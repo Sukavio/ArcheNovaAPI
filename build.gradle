@@ -42,3 +42,16 @@ tasks.withType(KotlinCompile) {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+tasks.named('jar') {
+	enabled = true
+	archiveBaseName.set('archeNova-plain')
+}
+
+bootJar {
+	archiveBaseName.set('ArcheNova')
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
