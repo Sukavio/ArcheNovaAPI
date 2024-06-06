@@ -17,6 +17,12 @@ class MonsterController {
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Int): Monster = repo.findById(id).orElse(null)
 
+    @GetMapping("/byLevel/{level}")
+    fun getByLevel(@PathVariable level: Int): MutableList<Monster> = repo.findByLevel(level);
+
+    @GetMapping("/byTag/{tag}")
+    fun getByTag(@PathVariable tag: String): MutableList<Monster> = repo.findByTagsContaining(tag);
+
     @PostMapping
     fun create(@RequestBody monster: Monster) = repo.save(monster)
 
