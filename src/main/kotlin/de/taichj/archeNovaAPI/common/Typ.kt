@@ -1,4 +1,4 @@
-package de.taichj.archeNovaAPI.monster.data
+package de.taichj.archeNovaAPI.common
 
 enum class Typ {
     Feuer, Wasser, Metall, Holz, Erde

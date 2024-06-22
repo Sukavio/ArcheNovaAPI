@@ -6,14 +6,21 @@ POST http://localhost:8080/monster
 Content-Type: application/json
 
 {
-  "id": 1,
+  "id": 4,
   "name": "hase",
   "typ": "Feuer",
   "tags": [],
   "talent": {
     "name": "Sprung",
     "beschreibung": "Test"
-  }
+  },
+  "attr": {
+    "hp": 1,
+    "ang": 1,
+    "mag": 1,
+    "def": 1,
+    "speed": 1
+  },
 }
 ###
 PUT http://localhost:8080/monster
@@ -23,6 +30,13 @@ Content-Type: application/json
   "id": 1,
   "name": "hase",
   "typ": "Wasser",
+  "attr": {
+    "hp": 1,
+    "ang": 1,
+    "mag": 1,
+    "def": 1,
+    "speed": 1
+  },
   "tags": [],
   "talent": {
     "name": "Sprung",
