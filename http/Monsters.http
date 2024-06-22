@@ -20,7 +20,7 @@ Content-Type: application/json
     "mag": 1,
     "def": 1,
     "speed": 1
-  },
+  }
 }
 ###
 PUT http://localhost:8080/monster
