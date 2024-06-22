@@ -19,6 +19,7 @@ services:
       - mongodb
   mongodb:
     image: 'mongo:latest'
+    container_name: MongoDB
     environment:
       - 'MONGO_INITDB_DATABASE=archenova'
       - 'MONGO_INITDB_ROOT_PASSWORD=secret'
