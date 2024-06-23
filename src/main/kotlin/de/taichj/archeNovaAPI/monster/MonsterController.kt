@@ -10,11 +10,16 @@ import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/monster", produces = [MediaType.APPLICATION_JSON_VALUE], consumes = [MediaType.APPLICATION_JSON_VALUE])
+@RequestMapping(
+    "/monster",
+    produces = [MediaType.APPLICATION_JSON_VALUE],
+    consumes = [MediaType.APPLICATION_JSON_VALUE]
+)
 @Validated
 class MonsterController(
     private val randomImageService: RandomImageService,
-    private var repo: MonsterRepository) {
+    private var repo: MonsterRepository
+) {
 
     @GetMapping
     fun getAll(): MutableList<Monster> = repo.findAll()
@@ -43,6 +48,8 @@ class MonsterController(
 
     @GetMapping("/random-image")
     fun getRandomImage(): String? {
-        return randomImageService.getImageNames().random()
+        repo.findAll().map { it.image.split("/").last() }.toMutableList().apply {
+            return randomImageService.getImageNames().filter { !contains(it) }.randomOrNull()
+        }
     }
 }
